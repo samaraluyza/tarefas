@@ -8,7 +8,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ProjetosServiceProvider } from '../providers/projetos-service/projetos-service';
+import { ProjetosService} from '../providers/projetos-service/projetos-service';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { ProjetosServiceProvider } from '../providers/projetos-service/projetos-
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ProjetosServiceProvider
+    ProjetosService
   ]
 })
 export class AppModule {}

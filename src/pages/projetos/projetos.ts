@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {ProjetosService} from '../../providers/projetos-service/projetos-service';
 
 @IonicPage()
 @Component({
@@ -8,11 +9,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProjetosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  projetos: any[];
+
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public projetoService: ProjetosService
+              ) {
+                this.projetos = projetoService.getProjetos();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProjetosPage');
+  novoProjeto(){
+
   }
 
+  selecionaProjeto(codigo){
+    
+  }
 }
