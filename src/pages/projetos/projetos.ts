@@ -20,11 +20,12 @@ export class ProjetosPage {
   }
 
   novoProjeto(){
-
+    this.navCtrl.push(ProjetoPage, {codigo: this.projetoService.ultimoCodigo+1, novo: true})
   }
 
   selecionaProjeto(c){
     let codigoNumero = parseInt(c);
-    this.navCtrl.push(ProjetoPage, {codigo: codigoNumero})
+    this.navCtrl.push(ProjetoPage, {codigo: codigoNumero, novo:false})
   }
+  incluir(){}
 }

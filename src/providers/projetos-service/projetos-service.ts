@@ -40,4 +40,11 @@ export class ProjetosService {
     }
   }
 
+  addProjeto(n:string) {
+    this.ultimoCodigo++;
+    this.projetos.push({
+      codigo: this.ultimoCodigo,
+      nome: n
+    });
+  }
 }

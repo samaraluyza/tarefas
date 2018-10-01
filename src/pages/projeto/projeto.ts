@@ -10,15 +10,19 @@ import {ProjetosService} from '../../providers/projetos-service/projetos-service
 })
 export class ProjetoPage {
   codigoProjeto: number;
-  nomeProjeto: string;
+  nomeProjeto: string = "";
+  novo: boolean;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public projetosService: ProjetosService) {
     this.codigoProjeto = navParams.get('codigo');
+    this.novo = navParams.get('novo')
     let projetos = projetosService.getProjetos();
-    for(let i=0; i<projetos.length; i++)
-    {
-      if(projetos[i].codigo ==this.codigoProjeto){
-        this.nomeProjeto = projetos[i].nome;
-        break;
+    if(!this.novo){
+      for(let i=0; i<projetos.length; i++){
+        if(projetos[i].codigo ==this.codigoProjeto){
+          this.nomeProjeto = projetos[i].nome;
+          break;
+        }
       }
     }
   }
@@ -31,6 +35,10 @@ export class ProjetoPage {
     this.projetosService.deleteProjeto(this.codigoProjeto, this.nomeProjeto);
     this.navCtrl.pop();
   }
- 
+
+  incluir() {
+    this.projetosService.addProjeto(this.nomeProjeto);
+    this.navCtrl.pop();
+  }
 
 }
