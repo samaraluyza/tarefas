@@ -24,10 +24,12 @@ export class ProjetoPage {
   }
 
   alterar(){
-
+    this.projetosService.editProjeto(this.codigoProjeto, this.nomeProjeto);
+    this.navCtrl.pop();
   }
   excluir(){
-
+    this.projetosService.deleteProjeto(this.codigoProjeto, this.nomeProjeto);
+    this.navCtrl.pop();
   }
  
 

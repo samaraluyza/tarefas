@@ -22,4 +22,22 @@ export class ProjetosService {
     return this.projetos;
   }
   
+  editProjeto(c: number, n:string){
+    for(let i=0; i<this.projetos.length; i++) {
+      if(this.projetos[i].codigo == c) {
+        this.projetos[i].nome = n;
+        break;
+      }
+    }
+  }
+
+  deleteProjeto(c: number, n:string){
+    for(let i=0; i<this.projetos.length; i++) {
+      if(this.projetos[i].codigo == c) {
+        this.projetos.splice(i, 1)
+        break;
+      }
+    }
+  }
+
 }
