@@ -8,5 +8,16 @@
 
 
 <ion-content padding>
-
+<ion-list>
+  <ion-label color="primary">Nome:</ion-label>
+  <ion-input type="text" placeholder="Nome do projeto" value="{{nomeProjeto}}"></ion-input>
+</ion-list>
+<div id="mais">
+<button ion-button round color="primary" (click) = "alterar()">
+  <ion-icon name="create"></ion-icon> 
+</button>
+<button ion-button round color="danger" (click) = "excluir()">
+    <ion-icon name="trash"></ion-icon> 
+  </button>
+</div>
 </ion-content>

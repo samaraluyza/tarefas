@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {ProjetosService} from '../../providers/projetos-service/projetos-service';
 
 
 @IonicPage()
@@ -8,10 +9,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'projeto.html',
 })
 export class ProjetoPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  codigoProjeto: number;
+  nomeProjeto: string;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public projetosService: ProjetosService) {
+    this.codigoProjeto = navParams.get('codigo');
+    let projetos = projetosService.getProjetos();
+    for(let i=0; i<projetos.length; i++)
+    {
+      if(projetos[i].codigo ==this.codigoProjeto){
+        this.nomeProjeto = projetos[i].nome;
+        break;
+      }
+    }
   }
 
+  alterar(){
+
+  }
+  excluir(){
+
+  }
  
 
 }
