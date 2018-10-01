@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {ProjetosService} from '../../providers/projetos-service/projetos-service';
+import {ProjetoPage} from '../projeto/projeto';
 
 @IonicPage()
 @Component({
@@ -22,7 +23,8 @@ export class ProjetosPage {
 
   }
 
-  selecionaProjeto(codigo){
-    
+  selecionaProjeto(c){
+    let codigoNumero = parseInt(c);
+    this.navCtrl.push(ProjetoPage, {codigo: codigoNumero})
   }
 }
